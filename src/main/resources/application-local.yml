@@ -1,0 +1,29 @@
+spring:
+  application:
+    name: sub_tech_challenge_auth_fase5
+  datasource:
+    url: jdbc:postgresql://localhost:5432/challenge
+    driver-class-name: org.postgresql.Driver
+    username: posfiap
+    password: posfiap2
+  jpa:
+    properties:
+      hibernate.dialect: org.hibernate.dialect.PostgreSQLDialect
+    hibernate:
+      ddl-auto: none
+    show-sql: true
+  sql:
+    init:
+      mode: always
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: https://dev-iugtbtykhkw0lt8h.us.auth0.com/
+server:
+  port: 9999
+auth0:
+  client-id: "I3XJUXfG2coE8PWI5LZyaX72wwtjnJw0"
+  client-secret: "y7a-P1yBera6eUaTJI3sKkwXZiIZjMXfiu8a0_LDQ7I5bR15a004vX9BGFXqCStL"
+  audience: "https://api.challenge.com"
+  domain: "dev-iugtbtykhkw0lt8h.us.auth0.com"
