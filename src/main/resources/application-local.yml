@@ -10,7 +10,7 @@ spring:
     properties:
       hibernate.dialect: org.hibernate.dialect.PostgreSQLDialect
     hibernate:
-      ddl-auto: none
+      ddl-auto: update
     show-sql: true
   sql:
     init:
@@ -21,7 +21,7 @@ spring:
         jwt:
           issuer-uri: https://dev-iugtbtykhkw0lt8h.us.auth0.com/
 server:
-  port: 9999
+  port: 8082
 auth0:
   client-id: "I3XJUXfG2coE8PWI5LZyaX72wwtjnJw0"
   client-secret: "y7a-P1yBera6eUaTJI3sKkwXZiIZjMXfiu8a0_LDQ7I5bR15a004vX9BGFXqCStL"

@@ -2,6 +2,7 @@ package br.com.fiap.tech.sub_tech_challenge_auth_fase5.application.client.servic
 
 import br.com.fiap.tech.sub_tech_challenge_auth_fase5.application.client.entities.ClientEntity;
 import br.com.fiap.tech.sub_tech_challenge_auth_fase5.application.client.ports.IClientService;
+import br.com.fiap.tech.sub_tech_challenge_auth_fase5.entrypoint.api.model.ClientDTO;
 import br.com.fiap.tech.sub_tech_challenge_auth_fase5.entrypoint.persistance.ClientRepository;
 import br.com.fiap.tech.sub_tech_challenge_auth_fase5.infrastructure.exceptions.CustomErrorTypeException;
 import lombok.RequiredArgsConstructor;
@@ -18,13 +19,19 @@ public class ClientService implements IClientService {
     private PasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
 
     @Override
-    public ClientEntity registraCliente(ClientEntity clienteDTO) {
+    public ClientDTO registraCliente(ClientEntity clienteDTO) {
         ClientEntity clientToSave = new ClientEntity();
 
         clientToSave.setCpf(clienteDTO.getCpf());
         clientToSave.setPassword(passwordEncoder.encode(clienteDTO.getPassword()));
 
-        return clientRepository.save(clientToSave);
+        ClientDTO clientDTO = new ClientDTO();
+        clientDTO.setCpf(clienteDTO.getCpf());
+        clientDTO.setPassword(passwordEncoder.encode(clienteDTO.getPassword()));
+
+        clientRepository.save(clientToSave);
+
+        return clientDTO;
     }
 
     @Override

@@ -2,6 +2,7 @@ package br.com.fiap.tech.sub_tech_challenge_auth_fase5.entrypoint.api.controller
 
 import br.com.fiap.tech.sub_tech_challenge_auth_fase5.application.client.entities.ClientEntity;
 import br.com.fiap.tech.sub_tech_challenge_auth_fase5.application.client.services.ClientService;
+import br.com.fiap.tech.sub_tech_challenge_auth_fase5.entrypoint.api.model.ClientDTO;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.*;
@@ -34,7 +35,7 @@ public class ClientController {
     }
 
     @PostMapping()
-    public ResponseEntity<ClientEntity> registerClient(@RequestBody ClientEntity client) {
+    public ResponseEntity<ClientDTO> registerClient(@RequestBody ClientEntity client) {
 
 
         return ResponseEntity.status(HttpStatus.CREATED).body(clientService.registraCliente(client));
